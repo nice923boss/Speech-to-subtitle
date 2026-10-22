@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.app.lock
+.pytest_cache/
+
+# Launcher trio and pyvenv.cfg: install_deps.py copies them from the local Python 3.12
+pythonw_speech2sub.exe
+python312.dll
+python3.dll
+pyvenv.cfg
+
+# Local Whisper models (scanner.DEFAULT_MODEL_DIR)
+models/
+
+# Local working notes, not published
+GAPS.md
+_FOLDER_INFO.md
+語音轉字幕.txt
+docs/spike0-worker-subprocess.md

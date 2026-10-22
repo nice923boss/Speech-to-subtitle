@@ -1,0 +1,30 @@
+# Python packages for Speech-to-subtitle, installed by install_deps.py
+# (run through the install .bat in this folder). Python 3.12 only: the launcher
+# trio (pythonw_speech2sub.exe, python312.dll, python3.dll) is copied from it.
+# Keep this file ASCII: on Windows pip reads it with the system code page.
+#
+# Lower bounds are the versions verified on 2026-10-22. No --upgrade is used,
+# so packages that already satisfy them are left alone (Quick subtitles shares
+# this interpreter).
+
+# Whisper transcription (transcriber.py, transcribe_worker.py).
+faster-whisper>=1.2.1
+# 4.7 is built for CUDA 12 + cuDNN 9 and bundles cudnn64_9.dll; <5 keeps it on
+# the CUDA 12 line that the cu12 wheels in requirements-gpu.txt match.
+ctranslate2>=4.7.1,<5
+
+# GUI (app.py).
+customtkinter>=5.2.2
+# Single-instance mutex in app.py; the app still runs without it.
+pywin32>=311
+
+# Simplified to Taiwan traditional (s2tw_gate.py imports "opencc").
+# Pure Python, so it installs without a compiler; s2tw_gate.py is tested
+# against this package, not the C++ "opencc" one.
+opencc-python-reimplemented>=0.1.7
+
+# MFA TextGrid reading (mfa_align.py), pinyin homophone checks
+# (post_mfa_cleanup.py), onset refinement (onset_refine.py).
+praatio>=6.2.2
+pypinyin>=0.55.0
+librosa>=0.11.0

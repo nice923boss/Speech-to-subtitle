@@ -1,0 +1,10 @@
+# NVIDIA libraries for running Whisper on the GPU. install_deps.py installs
+# them only when nvidia-smi (part of the NVIDIA driver) is found.
+# Keep this file ASCII: on Windows pip reads it with the system code page.
+#
+# cuda_setup.py loads their DLLs from site-packages/nvidia/*/bin, so no CUDA
+# Toolkit install is needed. cuDNN is not listed: ctranslate2 bundles
+# cudnn64_9.dll, and on 2026-10-22 a CUDA transcription with torch blocked
+# (torch would add its own cuDNN) ran with only these two plus that DLL.
+nvidia-cublas-cu12>=12.9
+nvidia-cuda-runtime-cu12>=12.9
